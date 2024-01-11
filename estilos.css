@@ -1,0 +1,197 @@
+h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.titulo {
+    margin: auto;
+    margin-left: 100px;
+    margin-right: 50px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: flex;
+    place-content: center;
+}
+
+.contenedor {
+    background: linear-gradient(to bottom, rgb(184, 230, 248), rgb(255, 255, 255));
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+    
+}
+.cambioFondoSi{
+    background: linear-gradient(to top, #ffcccb, rgb(255, 255, 255));
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+    animation: cambioFondoSiAnimation 1s ease-in-out;
+}
+
+.cambioFondoNo{
+    background: linear-gradient(to top, #000000, rgb(255, 255, 255));
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+    animation: cambioFondoNoAnimation 1s ease-in-out;
+
+}
+
+body {
+    display: grid;
+    background-color: black;
+}
+
+.btnNo {
+    /* Establece estilos para los botones */
+    padding: 10px 20px;
+    margin: 0 10px;
+    /* Espacio entre los botones */
+    font-size: 16px;
+    background-color: #69a4fc;
+    /* Color de fondo del botón */
+    color: #fff;
+    /* Color del texto del botón */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    /* Agrega cualquier otro estilo necesario */
+    transition: ease-in-out 1s; /* Transición para cambios suaves */
+    position: relative;
+    overflow: hidden; /* Agregado para ocultar el desbordamiento del emoji */
+}
+
+
+.btnNo:hover::before {
+    content: "💀"; /* Emoji */
+    font-size: 50px; /* Tamaño del emoji */
+    opacity: 1; /* Inicialmente oculto */
+    transition: opacity 0.5s ease; /* Transición para cambios suaves de opacidad */
+    position: fixed;
+    top: 50%;
+    left: 48%;
+    animation: latido 1s infinite; 
+}
+
+
+.btnNo:hover {
+    /* Estilos cuando el cursor está sobre el botón */
+    background-color: #000000;
+    box-shadow: 0 0 20px 5px rgba(16, 1, 85, 0.5);
+    padding: 20px 30px;
+    margin: 0 10px;
+    /* Espacio entre los botones */
+    font-size: 20px;
+    border-radius: 30px;
+    
+}
+
+
+.btnSi {
+    /* Establece estilos para los botones */
+    padding: 10px 20px;
+    margin: 0 10px;
+    /* Espacio entre los botones */
+    font-size: 16px;
+    background-color: #69a4fc;
+    /* Color de fondo del botón */
+    color: #fff;
+    /* Color del texto del botón */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    /* Agrega cualquier otro estilo necesario */
+    transition: ease-in-out 1s; /* Transición para cambios suaves */
+    position: relative;
+    overflow: hidden; /* Agregado para ocultar el desbordamiento del emoji */
+}
+
+.btnSi:hover {
+    /* Estilos cuando el cursor está sobre el botón */
+    animation: cambioColor 1s infinite;
+    padding: 20px 30px;
+    margin: 0 10px;
+    /* Espacio entre los botones */
+    font-size: 20px;
+    border-radius: 30px;
+    /* Cambia el fondo del contenedor al hacer hover */
+
+}
+
+.btnSi:hover::before {
+    content: "💖"; /* Emoji */
+    font-size: 50px; /* Tamaño del emoji */
+    opacity: 1; /* Inicialmente oculto */
+    transition: opacity 0.5s ease; /* Transición para cambios suaves de opacidad */
+    position: fixed;
+    top: 50%;
+    left: 48%;
+    animation: latido 1s infinite; 
+    
+}
+
+@keyframes cambioColor {
+    0% {
+        background-color: #fa5eea;
+        box-shadow: 0 0 20px 5px #fa5eea;
+        opacity: 1;
+    }
+
+    25% {
+        background-color: #f71ec0;
+        box-shadow: 0 0 20px 5px #f71ec0;
+        opacity: 1;
+    }
+
+    50% {
+        background-color: #fc81dd;
+        box-shadow: 0 0 20px 5px #f538c6;
+        opacity: 1;
+    }
+    75% {
+        background-color: #ee11b3;
+        box-shadow: 0 0 20px 5px #ee11b3;
+        opacity: 1;
+    }
+    100% {
+        background-color: #ec6acc;
+        box-shadow: 0 0 20px 5px #ec6acc;
+        opacity: 1;
+    }
+
+}
+
+@keyframes latido {
+    0% {
+        text-shadow: 0 0 20px 5px #ec6acc;
+        transform: scale(1);
+        
+    }
+    50% {
+        text-shadow: 0 0 20px 5px #ec6acc;
+        transform: scale(1.2);
+        
+    }
+    100% {
+        text-shadow: 0 0 20px 5px #ec6acc;
+        transform: scale(1);
+        
+    }
+}
+
+@keyframes cambioFondoSiAnimation {
+    from {
+        background: linear-gradient(to top, #ffcccb, rgb(255, 255, 255));
+    }
+    to {
+        background: linear-gradient(to top, #ffcccb, rgb(255, 255, 255));
+    }
+}
+
+@keyframes cambioFondoNoAnimation {
+    from {
+        background: linear-gradient(to top, #000000, rgb(255, 255, 255));
+    }
+    to {
+        background: linear-gradient(to top, #000000, rgb(255, 255, 255));
+    }
+}
