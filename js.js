@@ -56,7 +56,7 @@ function restaurarFondo(event) {
 function mostrarAlertaNo() {
   if (confirm("¿Estás segur@ de continuar con esta grave decisión?")) {
     txt = "You pressed OK!";
-    setTimeout( function() { window.location.href = "/pag2.html"; }, 5000 );
+    window.location.href = "/pag2.html"; // Redireccionar inmediatamente
   } else {
     txt = "You pressed Cancel!";
   }
