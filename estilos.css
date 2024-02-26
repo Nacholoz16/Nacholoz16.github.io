@@ -19,6 +19,15 @@ h1 {
     text-align: center;
     
 }
+.contenedor2{
+    display: flexbox;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(61, 104, 120));
+    height: auto;
+    width: auto;
+    margin: 0;
+    text-align: center;
+}
 .cambioFondoSi{
     background: linear-gradient(to top, #ffcccb, rgb(255, 255, 255));
     height: 100vh;
@@ -195,3 +204,8 @@ body {
         background: linear-gradient(to top, #000000, rgb(255, 255, 255));
     }
 }
+
+.img {
+    max-width: 100%; /* La imagen nunca será más ancha que el contenedor */
+    height: auto; /* La altura se ajustará automáticamente para mantener la proporción */
+  }
