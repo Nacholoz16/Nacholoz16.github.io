@@ -1,0 +1,136 @@
+---
+const links = [
+  { name: 'Inicio', href: '/' },
+  { name: 'Pokemones', href: '/pokemons' }
+]
+---
+
+<header class="sticky-header">
+  <div class="glass-bg"></div>
+  <nav>
+    <div class="logo">
+      <img 
+        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" 
+        alt="Pokéball"
+        class="pokeball-icon"
+      />
+      <span>Pokédex</span>
+    </div>
+    <ul>
+      {links.map((link) => (
+        <li>
+          <a href={link.href}>{link.name}</a>
+        </li>
+      ))}  
+    </ul>
+  </nav>
+</header>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+  :root {
+    --primary-color: #00ffff;
+    --secondary-color: #ff00ff;
+    --background-color: #111;
+    --text-color: #fff;
+  }
+
+  .sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .glass-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    position: relative;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: var(--text-color);
+    text-shadow: 0 0 10px var(--primary-color);
+  }
+
+  .pokeball-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    filter: drop-shadow(0 0 5px var(--primary-color));
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) rotate(0);
+    }
+    50% {
+      transform: translateY(-5px) rotate(10deg);
+    }
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    position: relative;
+  }
+
+  a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px var(--primary-color);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    ul {
+      margin-top: 1rem;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,163 @@
+<footer>
+    <div class="glass-bg"></div>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img 
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" 
+                alt="Pokéball"
+                class="pokeball-icon"
+            />
+            <span>Pokédex</span>
+        </div>
+        <p class="copyright">© 2025 Pokédex. Todos los derechos reservados.</p>
+        <div class="footer-decoration">
+            <div class="tech-line"></div>
+            <div class="tech-line"></div>
+            <div class="tech-line"></div>
+        </div>
+    </div>
+</footer>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    :root {
+        zoom: 0.9;
+        --primary-color: #00ffff;
+        --secondary-color: #ff00ff;
+        --background-color: #111;
+        --text-color: #fff;
+    }
+
+    footer {
+        position: relative;
+        padding: 2rem 1rem;
+        margin-top: 2rem;
+        font-family: 'Orbitron', sans-serif;
+    }
+
+    .glass-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-content {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .footer-logo span {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--text-color);
+        text-shadow: 0 0 10px var(--primary-color);
+    }
+
+    .pokeball-icon {
+        width: 2rem;
+        height: 2rem;
+        filter: drop-shadow(0 0 5px var(--primary-color));
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    .copyright {
+        color: var(--text-color);
+        text-align: center;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        text-shadow: 0 0 5px var(--secondary-color);
+    }
+
+    .footer-decoration {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .tech-line {
+        height: 2px;
+        background: linear-gradient(90deg, 
+            transparent, 
+            var(--primary-color),
+            var(--secondary-color),
+            transparent
+        );
+        animation: glow 3s linear infinite;
+    }
+
+    .tech-line:nth-child(1) { width: 30%; animation-delay: 0s; }
+    .tech-line:nth-child(2) { width: 50%; animation-delay: 0.5s; }
+    .tech-line:nth-child(3) { width: 30%; animation-delay: 1s; }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            filter: drop-shadow(0 0 5px var(--primary-color));
+        }
+        50% {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 10px var(--secondary-color));
+        }
+    }
+
+    @keyframes glow {
+        0%, 100% {
+            opacity: 0.5;
+            filter: brightness(1);
+        }
+        50% {
+            opacity: 1;
+            filter: brightness(1.5);
+        }
+    }
+
+    /* Efecto hover en el logo */
+    .footer-logo:hover .pokeball-icon {
+        animation: spin 1s ease-in-out;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        footer {
+            padding: 1.5rem 1rem;
+        }
+
+        .footer-decoration {
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tech-line {
+            width: 80% !important;
+        }
+    }
+</style>

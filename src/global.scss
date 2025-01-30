@@ -1,0 +1,15 @@
+
+  /* Contenedor principal del contenido */
+  BaseLayout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+  }
+
+  /* Asegura que la card no se deforme */
+  Card {
+    max-width: 500px;
+    width: 100%;
+  }
+

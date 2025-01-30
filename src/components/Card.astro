@@ -1,0 +1,168 @@
+---
+const { id, name, imageUrl, type, height, weight, link = true } = Astro.props;
+---
+
+{link ? (
+<a href={`/pokemon/${id}`} class="grid-pokemon-card">
+  <div class="grid-pokemon-header">
+    <img src={imageUrl} alt={name} class="grid-pokemon-img" />
+  </div>
+  <div class="grid-pokemon-body">
+    <h2 class="grid-pokemon-name">#{id} - {name}</h2>
+  </div>
+</a>
+
+
+
+) : (
+
+<div class="pokemon-card" >
+  <div class="holographic-effect"></div>
+  <div class="card-header">
+    <img src={imageUrl} alt={name} class="pokemon-img" />
+  </div>
+  <div class="card-body">
+    <h2 class="pokemon-name">#{id} - {name}</h2>
+    <p class="pokemon-type">Tipo: <span>{type}</span></p>
+    <p class="pokemon-info">Altura: <span>{height}</span> | Peso: <span>{weight}</span> </p>
+  </div>
+</div>
+
+)}
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+@keyframes expandCard {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.8); }
+  }
+
+  .pokemon-card {
+    width: 300px;
+    height: 180px;
+    background: linear-gradient(135deg, rgba(0, 10, 36, 0.392), rgba(0, 149, 255, 0.282));
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    font-family: "Orbitron", sans-serif;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards, expandCard 0.3s ease-in-out 0.4s forwards;
+    border: solid 1px white;
+    box-shadow: 0px 0px 5px white;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .pokemon-img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: drop-shadow(0px 0px 5px white);
+    margin-right: 2px;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  .pokemon-name {
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    color: #333;
+  }
+
+  .pokemon-type,
+  .pokemon-info {
+    font-size: 0.7rem;
+    color: #666;
+    margin-bottom: 5px;
+  }
+
+  .pokemon-type span,
+  .pokemon-info span {
+    font-weight: bold;
+    color: #333;
+  }
+
+
+
+
+
+
+
+/* Grid styles (unchanged) */
+.grid-pokemon-card {
+  background: linear-gradient(135deg, rgba(0, 10, 36, 0.392), rgba(0, 149, 255, 0.282));
+  border: 2px solid cyan;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px cyan;
+
+  padding: 15px;
+  font-family: "Orbitron", sans-serif;
+  color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 200px;
+
+}
+
+.grid-pokemon-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0px 0px 20px cyan;
+  background: linear-gradient(135deg, rgba(0, 28, 99, 0.392), rgba(0, 149, 255, 0.426));
+}
+
+.grid-pokemon-img {
+  height: 170px;
+  object-fit: contain;
+  filter: drop-shadow(0px 0px 7px rgb(0, 255, 255));
+  transition: transform 0.3s;
+}
+
+.grid-pokemon-card:hover .grid-pokemon-img {
+  transform: scale(1.1);
+}
+
+.grid-pokemon-name {
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 3px cyan;
+  margin: 5px 0;
+}
+
+.grid-pokemon-type {
+  font-size: 0.85rem;
+  color: #00eaff;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.grid-pokemon-type span {
+  color: #fff;
+  font-weight: normal;
+}
+
+
+
+</style>
+

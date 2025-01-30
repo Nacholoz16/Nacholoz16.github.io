@@ -1,0 +1,49 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Card from "../components/Card.astro";
+import { ClientRouter, fade, slide } from "astro:transitions";
+
+const API_URL = "https://pokeapi.co/api/v2/pokemon?limit=151";
+const response = await fetch(API_URL);
+const data = await response.json();
+const pokemons = data.results.map((pokemon: any, index: number) => ({
+  id: pokemon.url.split("/").filter(Boolean).pop(), // Extrae el ID de la URL
+  name: pokemon.name,
+  url: pokemon.url,
+  imageUrl: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`,
+}));
+---
+
+<BaseLayout>
+  <ClientRouter />
+  <h1>Pokemones</h1>
+  <div class="grid">
+    {
+      pokemons.map(
+        (pokemon: {
+          id: number;
+          name: string;
+          url: string;
+          imageUrl: string;
+        }) => (
+          <Card
+            id={pokemon.id}
+            name={pokemon.name}
+            url={pokemon.url}
+            
+            imageUrl={pokemon.imageUrl}
+          />
+        ),
+      )
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .grid {
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    gap: 1rem;
+  }
+</style>
