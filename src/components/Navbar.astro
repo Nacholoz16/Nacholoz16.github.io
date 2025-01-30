@@ -17,8 +17,9 @@ const links = [
       <span>Pokédex</span>
     </div>
     <ul>
+      
       {links.map((link) => (
-        <li>
+        <li key={link.href}>
           <a href={link.href}>{link.name}</a>
         </li>
       ))}  

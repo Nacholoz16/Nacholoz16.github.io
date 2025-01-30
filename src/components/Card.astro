@@ -1,5 +1,5 @@
 ---
-const { id, name, imageUrl, type, height, weight, link = true } = Astro.props;
+const { id, name, imageUrl, type = "Desconocido", height = "?", weight = "?" } = Astro.props;
 ---
 
 {link ? (
